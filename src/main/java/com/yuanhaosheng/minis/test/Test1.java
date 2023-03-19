@@ -1,5 +1,6 @@
 package com.yuanhaosheng.minis.test;
 
+import com.yuanhaosheng.minis.bean.BeanException;
 import com.yuanhaosheng.minis.context.ClassPathXmlApplicationContext;
 
 /**
@@ -9,11 +10,10 @@ import com.yuanhaosheng.minis.context.ClassPathXmlApplicationContext;
  */
 public class Test1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BeanException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("data.xml");
-        AService aService = (AService) context.getBeans("aService");
+        AService aService = (AService) context.getBean("aService");
         aService.sayHello();
-
     }
 
 }
