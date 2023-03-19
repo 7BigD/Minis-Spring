@@ -27,6 +27,10 @@ public class ClassPathXmlApplicationContext {
         this.instanceBeans();
     }
 
+    public Object getBeans(String id) {
+        return singletons.get(id);
+    }
+
     private void readerXml(String fileName) {
         SAXReader saxReader = new SAXReader();
         try {
