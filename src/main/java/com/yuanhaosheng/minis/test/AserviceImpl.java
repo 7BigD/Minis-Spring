@@ -5,5 +5,10 @@ package com.yuanhaosheng.minis.test;
  * @Author: yuanhaosheng
  * @Version: 1.0
  */
-public class AserviceImpl {
+public class AserviceImpl implements AService {
+
+    @Override
+    public void sayHello() {
+        System.out.println("hello world!");
+    }
 }

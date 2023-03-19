@@ -6,4 +6,5 @@ package com.yuanhaosheng.minis.test;
  * @Version: 1.0
  */
 public interface AService {
+    void sayHello();
 }
