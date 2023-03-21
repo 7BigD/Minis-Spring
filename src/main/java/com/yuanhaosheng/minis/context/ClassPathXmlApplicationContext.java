@@ -12,21 +12,29 @@ import com.yuanhaosheng.minis.core.Resource;
 
 public class ClassPathXmlApplicationContext {
 
-    private BeanFactory beanFactory;
+    private SimpleBeanFactory simpleBeanFactory;
 
     public ClassPathXmlApplicationContext(String fileName) {
         Resource resource = new ClassPathXmlResource(fileName);
-        BeanFactory factory = new SimpleBeanFactory();
+        SimpleBeanFactory factory = new SimpleBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
         reader.loadBeanDefinitions(resource);
-        this.beanFactory = factory;
+        this.simpleBeanFactory = factory;
     }
 
     public Object getBean(String beanId) throws BeanException {
-        return this.beanFactory.getBean(beanId);
+        return this.simpleBeanFactory.getBean(beanId);
+    }
+
+    public Boolean containsBean(String name) {
+        return this.simpleBeanFactory.containsBean(name);
+    }
+
+    public void registerBean(String beanName, Object obj) {
+        this.simpleBeanFactory.registerBean(beanName, obj);
     }
 
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
-        this.beanFactory.registerBeanDefinition(beanDefinition);
+        this.simpleBeanFactory.registerBeanDefinition(beanDefinition);
     }
 }

@@ -7,8 +7,9 @@ package com.yuanhaosheng.minis.bean;
  */
 public interface BeanFactory {
 
-    Object getBean(String beanId) throws BeanException;
+    Object getBean(String beanName) throws BeanException;
 
-    void registerBeanDefinition(BeanDefinition beanDefinition);
+    Boolean containsBean(String beanName);
 
+    void registerBean(String beanName, Object obj);
 }
